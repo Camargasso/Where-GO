@@ -1,0 +1,144 @@
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* overflow: hidden; */
+    /* Impede que o conteúdo seja rolado sob o menu */
+}
+
+header {
+    height: 82px;
+    background-color: #59738D;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.menu-toggle {
+    cursor: pointer;
+    overflow-y: auto;
+}
+
+.bar {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+}
+
+.mobile-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    left: -250px;
+    /* Inicialmente, o menu fica fora da tela à esquerda */
+    top: 0;
+    width: 250px;
+    /* Largura do menu */
+    height: 100%;
+    /* Altura da tela inteira */
+    background-color: #1b1919ea;
+    transition: left 0.3s;
+    /* Efeito de deslize */
+    overflow: hidden;
+}
+
+.mobile-menu li {
+    margin: 20px;
+}
+
+.mobile-menu a {
+    font-size: 25px;
+    margin: 25px;
+    text-decoration: none;
+    color: white;
+}
+
+.mobile-menu.open {
+    left: 0;
+    /* Exibe o menu deslizando da esquerda para a direita */
+}
+
+main {
+    margin-left: 250px;
+    /* A margem à esquerda é igual à largura do menu para evitar a sobreposição */
+    padding: 20px;
+}
+
+
+
+.close-menu-button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.close-menu-button:focus {
+    outline: none;
+}
+
+#logo {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 200px;
+}
+
+#options {
+    list-style: none;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    bottom: -353px;
+
+}
+
+li {
+    border-bottom: 1px solid #ffffff;
+    padding: 10px 0;
+}
+
+.container{
+    text-align: center;
+}
+
+/*----------------------------------------------CSS dos card-------------------------------------------------------------------*/
+.card-container {
+    margin-left: 50px;
+    display: flex; /* Define um layout flexível */
+    flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha se não couberem na largura da tela */
+}
+.card {
+    width: calc(33.33% - 20px); /* Define a largura de cada card (ajuste conforme necessário) */
+    margin: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilos para telas menores (responsivo) */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    #logo{
+        padding: 7px;
+    }
+    }
