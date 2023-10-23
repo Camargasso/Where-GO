@@ -68,8 +68,6 @@ main {
     padding: 20px;
 }
 
-
-
 .close-menu-button {
     position: absolute;
     bottom: 20px;
@@ -107,18 +105,22 @@ li {
     padding: 10px 0;
 }
 
-.container{
+/*--------------------------------------------------configs do menu lateral---------------------------------------------*/
+.container {
     text-align: center;
 }
-
 /*----------------------------------------------CSS dos card-------------------------------------------------------------------*/
 .card-container {
     margin-left: 50px;
-    display: flex; /* Define um layout flexível */
-    flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha se não couberem na largura da tela */
+    display: flex;
+    /* Define um layout flexível */
+    flex-wrap: wrap;
+    /* Permite que os cards quebrem para a próxima linha se não couberem na largura da tela */
 }
+
 .card {
-    width: calc(33.33% - 20px); /* Define a largura de cada card (ajuste conforme necessário) */
+    width: calc(33.33% - 20px);
+    /* Define a largura de cada card (ajuste conforme necessário) */
     margin: 10px;
     width: 200px;
     border: 1px solid #ccc;
@@ -138,7 +140,35 @@ li {
     .menu-toggle {
         display: block;
     }
-    #logo{
-        padding: 7px;
+
+    .header {
+        width: 100%;
     }
+
+    /* .container{
+        display: flex;
+        flex-direction: column;
+        flex-wrap:wrap ;
+        align-items: center;
+
+    } */
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
     }
+
+    .card {
+        width: 50%;
+        /* Faz com que cada card ocupe metade da largura da tela */
+        box-sizing: border-box;
+        /* Certifica-se de que as bordas e o preenchimento não aumentem o tamanho do card */
+        padding: 10px;
+        width: 140px;
+    }
+}
+
+/*-------------------------------------------------card destaque-------------------------------------------------------------*/
+.card-destaque{
+    height: 250px;
+    background-color: grey;
+}
