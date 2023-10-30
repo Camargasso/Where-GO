@@ -41,4 +41,3 @@ var altura = screen.height;
 console.log("Largura da tela: " + largura + "px");
 console.log("Altura da tela: " + altura + "px");
 
-
