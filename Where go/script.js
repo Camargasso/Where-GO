@@ -9,35 +9,49 @@ menuToggle.addEventListener("click", () => {
 closeMenuButton.addEventListener("click", () => {
     mobileMenu.classList.remove("open");
 });
-//----------------------------------------------------------
-const cardContainer = document.querySelector(".card-container");
-let scrollAmount = 0;
 
-function handleCarousel(direction) {
-    const cardWidth = 320; // Largura de cada card (ajuste conforme necessário)
-    scrollAmount += direction * cardWidth;
-    if (scrollAmount < 0) scrollAmount = 0;
-    if (scrollAmount > cardContainer.scrollWidth - cardContainer.clientWidth) {
-        scrollAmount = cardContainer.scrollWidth - cardContainer.clientWidth;
-    }
-    cardContainer.style.transform = `translateX(-${scrollAmount}px)`;
+//----------------------------------------------------------
+const slider = document.querySelectorAll('.slider')
+const btnPrev = document.getElementById('prev-button')
+const btnNext = document.getElementById('next-button')
+
+let currentSlide = 0
+
+function hideSlider() {
+    slider.forEach(item => item.classList.remove('on'))
 }
 
-// Botões para controlar o carrossel
-const prevButton = document.getElementById("prev");
-const nextButton = document.getElementById("next");
+function showSlider() {
+    slider[currentSlide].classList.add('on')
+}
 
-prevButton.addEventListener("click", () => {
-    handleCarousel(-1);
-});
+function nextSlider() {
+    hideSlider()
+    if (currentSlide === slider.length - 1) {
+        currentSlide = 0
+    } else {
+        currentSlide++
+    }
+    showSlider()
+}
 
-nextButton.addEventListener("click", () => {
-    handleCarousel(1);
-});
+function prevSlider() {
+    hideSlider()
+    if (currentSlide === 0) {
+        currentSlide = slider.length -1
+    } else {
+        currentSlide--
+    }
+    showSlider()
+}
 
-var largura = screen.width;
-var altura = screen.height;
+btnNext.addEventListener('click', nextSlider)
+btnPrev.addEventListener('click', prevSlider)
 
-console.log("Largura da tela: " + largura + "px");
-console.log("Altura da tela: " + altura + "px");
+console.log(slider)
+
+
+
+
+
 
