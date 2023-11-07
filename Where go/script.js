@@ -9,49 +9,36 @@ menuToggle.addEventListener("click", () => {
 closeMenuButton.addEventListener("click", () => {
     mobileMenu.classList.remove("open");
 });
-
 //----------------------------------------------------------
-const slider = document.querySelectorAll('.slider')
-const btnPrev = document.getElementById('prev-button')
-const btnNext = document.getElementById('next-button')
+const cardContainer = document.querySelector(".card-container");
+let scrollAmount = 0;
 
-let currentSlide = 0
-
-function hideSlider() {
-    slider.forEach(item => item.classList.remove('on'))
-}
-
-function showSlider() {
-    slider[currentSlide].classList.add('on')
-}
-
-function nextSlider() {
-    hideSlider()
-    if (currentSlide === slider.length - 1) {
-        currentSlide = 0
-    } else {
-        currentSlide++
+function handleCarousel(direction) {
+    const cardWidth = 320; // Largura de cada card (ajuste conforme necessário)
+    scrollAmount += direction * cardWidth;
+    if (scrollAmount < 0) scrollAmount = 0;
+    if (scrollAmount > cardContainer.scrollWidth - cardContainer.clientWidth) {
+        scrollAmount = cardContainer.scrollWidth - cardContainer.clientWidth;
     }
-    showSlider()
+    cardContainer.style.transform = `translateX(-${scrollAmount}px)`;
 }
 
-function prevSlider() {
-    hideSlider()
-    if (currentSlide === 0) {
-        currentSlide = slider.length -1
-    } else {
-        currentSlide--
-    }
-    showSlider()
-}
+// Botões para controlar o carrossel
+const prevButton = document.getElementById("prev");
+const nextButton = document.getElementById("next");
 
-btnNext.addEventListener('click', nextSlider)
-btnPrev.addEventListener('click', prevSlider)
+prevButton.addEventListener("click", () => {
+    handleCarousel(-1);
+});
 
-console.log(slider)
+nextButton.addEventListener("click", () => {
+    handleCarousel(1);
+});
 
+var largura = screen.width;
+var altura = screen.height;
 
-
-
+console.log("Largura da tela: " + largura + "px");
+console.log("Altura da tela: " + altura + "px");
 
 
